@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "rootDir": "src",
+    "outDir": "lib",
+    "module": "commonjs",
+    "strict": true,
+    "paths": {}
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
