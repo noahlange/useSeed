@@ -2,7 +2,7 @@ import * as seedrandom from 'seedrandom';
 
 export default class Seeder {
   public static get seed(): string {
-    return this.seeder._seed;
+    return this.seeder.seed;
   }
 
   public static unset(seed: string): void {
@@ -26,19 +26,19 @@ export default class Seeder {
   protected static seeder: Seeder;
   protected static states: Record<string, seedrandom.State> = {};
 
-  protected _seeder: seedrandom.prng;
-  protected _seed: string;
+  protected seeder: seedrandom.prng;
+  protected seed: string;
 
   protected save() {
-    Seeder.states[this._seed] = this._seeder.state();
+    Seeder.states[this.seed] = this.seeder.state();
   }
 
   public random() {
-    return this._seeder.quick();
+    return this.seeder.quick();
   }
 
   public constructor(seed: string, state: seedrandom.State = true) {
-    this._seed = seed;
-    this._seeder = seedrandom(seed, { state });
+    this.seed = seed;
+    this.seeder = seedrandom(seed, { state });
   }
 }
